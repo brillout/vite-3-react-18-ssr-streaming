@@ -38,30 +38,19 @@ function MovieList() {
   )
 }
 
-type Movie = {
-  id: string
-  title: string
-  release_date: string
-}
-async function getMovies(response: any): Promise<Movie[]> {
-  const moviesFromApi = (await response.json()).results as MovieFromApi[]
+async function getMovies(response) {
+  const moviesFromApi = (await response.json()).results
   const movies = cleanApiResult(moviesFromApi)
   return movies
 }
 
-type MovieFromApi = {
-  title: string
-  release_date: string
-  director: string
-  producer: string
-}
-function cleanApiResult(moviesFromApi: MovieFromApi[]): Movie[] {
+function cleanApiResult(moviesFromApi) {
   const movies = moviesFromApi.map((movie, i) => {
     const { title, release_date } = movie
     return {
       id: String(i + 1),
       title,
-      release_date,
+      release_date
     }
   })
   return movies

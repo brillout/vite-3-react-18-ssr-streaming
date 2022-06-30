@@ -1,4 +1,4 @@
-name = "vite-plugin-ssr_worker-example"
+name = "vite-react-18-ssr-streaming"
 compatibility_date = "2021-09-29"
 account_id = ""
 workers_dev = true
@@ -6,7 +6,7 @@ type = "javascript"
 compatibility_flags = ["streams_enable_constructors"]
 
 [build]
-command = "pnpm build:worker"
+command = "pnpm run build"
 [build.upload]
 format = "service-worker"
 
